@@ -25,6 +25,9 @@ export const site = {
     { label: "Facebook", url: "https://www.facebook.com/profile.php?id=61565596497818" },
   ],
   buffet: { adult: 119, adultWithDrink: 129, kid: 80, kidWithDrink: 89 },
+  // Elfsight "Google Reviews" widget IDs (from the embed code: class="elfsight-app-<ID>").
+  // One ID is enough; add a second if you make a Swedish-language widget. Empty = widget off.
+  elfsight: { en: "4be328de-a25d-4e8f-854c-7ea99ee04b0f", sv: "" },
   // Snapshot from the Google Maps listing (Oct 2026) — update by hand when it changes.
   google: {
     rating: 4.7,

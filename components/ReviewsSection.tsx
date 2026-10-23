@@ -1,5 +1,6 @@
 "use client";
 
+import Script from "next/script";
 import { useLanguage } from "./LanguageProvider";
 import { reviews } from "./reviews";
 import { site } from "./site";
@@ -43,6 +44,7 @@ const GoogleMark = () => (
 export function ReviewsSection() {
   const { t, lang } = useLanguage();
   const { rating, count, reviewsUrl } = site.google;
+  const elfsightId = site.elfsight[lang] || site.elfsight[lang === "en" ? "sv" : "en"];
   const ratingText = rating.toLocaleString(lang === "sv" ? "sv-SE" : "en-GB", { minimumFractionDigits: 1 });
 
   return (
@@ -89,22 +91,30 @@ export function ReviewsSection() {
           </div>
         </div>
 
-        {reviews.length > 0 && (
-          <ul className="mt-6 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {reviews.map((r, i) => (
-              <li key={i} className="glass flex flex-col gap-4 rounded-3xl p-6">
-                <div className="flex items-center justify-between">
-                  <Stars rating={r.rating} size={16} />
-                  <GoogleMark />
-                </div>
-                <blockquote className="flex-1 font-serif text-xl leading-snug text-cream/90 italic">“{r.text}”</blockquote>
-                <p className="font-mono text-[11px] tracking-[0.2em] text-cream/55 uppercase">
-                  {r.author}
-                  {r.date && <span className="text-cream/35"> · {r.date}</span>}
-                </p>
-              </li>
-            ))}
-          </ul>
+        {elfsightId ? (
+          <>
+            {/* Live Google reviews via Elfsight; the key remounts it when the language (widget) changes. */}
+            <div key={elfsightId} className={`elfsight-app-${elfsightId} mt-6`} data-elfsight-app-lazy />
+            <Script src="https://elfsightcdn.com/platform.js" strategy="lazyOnload" />
+          </>
+        ) : (
+          reviews.length > 0 && (
+            <ul className="mt-6 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+              {reviews.map((r, i) => (
+                <li key={i} className="glass flex flex-col gap-4 rounded-3xl p-6">
+                  <div className="flex items-center justify-between">
+                    <Stars rating={r.rating} size={16} />
+                    <GoogleMark />
+                  </div>
+                  <blockquote className="flex-1 font-serif text-xl leading-snug text-cream/90 italic">“{r.text}”</blockquote>
+                  <p className="font-mono text-[11px] tracking-[0.2em] text-cream/55 uppercase">
+                    {r.author}
+                    {r.date && <span className="text-cream/35"> · {r.date}</span>}
+                  </p>
+                </li>
+              ))}
+            </ul>
+          )
         )}
       </div>
     </section>
