@@ -15,6 +15,12 @@
 html {
   background: var(--color-charcoal);
   color: var(--color-cream);
+  scroll-behavior: smooth;
+}
+
+/* Keep anchor targets clear of the fixed header. */
+[id] {
+  scroll-margin-top: 7rem;
 }
 
 body {

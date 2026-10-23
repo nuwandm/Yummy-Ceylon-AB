@@ -8,6 +8,8 @@ import { Scene } from "@/components/Scene";
 import { ScrollBackground } from "@/components/ScrollBackground";
 import { site } from "@/components/site";
 import type { Album } from "@/lib/album-types";
+import Link from "next/link";
+import { BookingSection } from "@/components/BookingSection";
 import { GallerySection } from "@/components/GallerySection";
 import { MapSection } from "@/components/MapSection";
 import { OpeningHours } from "@/components/OpeningHours";
@@ -26,15 +28,13 @@ export function HomePage({ albums }: { albums: Album[] }) {
       {t.scroll}
     </div>,
     // 2 · menu link
-    <a
+    <Link
       key="menu"
-      href={site.menuUrl}
-      target="_blank"
-      rel="noreferrer"
+      href="/menu/"
       className="mt-6 inline-flex items-center gap-2 rounded-full border border-amber-glow/40 px-5 py-2.5 font-mono text-xs tracking-[0.2em] text-amber-glow uppercase transition hover:bg-amber-glow hover:text-charcoal"
     >
-      {t.visit.menu} →
-    </a>,
+      {t.menuPage.viewMenu} →
+    </Link>,
     // 3 · buffet prices
     <dl key="lunch" className="mt-6 grid grid-cols-2 gap-3">
       {[
@@ -114,6 +114,7 @@ export function HomePage({ albums }: { albums: Album[] }) {
         </div>
         <GallerySection albums={albums} />
         <ReviewsSection />
+        <BookingSection />
         <MapSection />
       </main>
     </>
