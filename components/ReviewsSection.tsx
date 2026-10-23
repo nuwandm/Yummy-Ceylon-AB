@@ -1,6 +1,6 @@
 "use client";
 
-import Script from "next/script";
+import { ElfsightReviews } from "./ElfsightReviews";
 import { useLanguage } from "./LanguageProvider";
 import { reviews } from "./reviews";
 import { site } from "./site";
@@ -92,11 +92,8 @@ export function ReviewsSection() {
         </div>
 
         {elfsightId ? (
-          <>
-            {/* Live Google reviews via Elfsight; the key remounts it when the language (widget) changes. */}
-            <div key={elfsightId} className={`elfsight-app-${elfsightId} mt-6`} data-elfsight-app-lazy />
-            <Script src="https://elfsightcdn.com/platform.js" strategy="lazyOnload" />
-          </>
+          // Live Google reviews via Elfsight, restyled to the site theme.
+          <ElfsightReviews widgetId={elfsightId} />
         ) : (
           reviews.length > 0 && (
             <ul className="mt-6 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
