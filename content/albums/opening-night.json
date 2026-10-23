@@ -1,0 +1,45 @@
+{
+  "date": "2025-11-15",
+  "title_en": "Opening night",
+  "title_sv": "Öppningskväll",
+  "description_en": "The evening we first opened our doors in Aröd: lanterns lit, kottu on the grill and the whole neighbourhood invited.",
+  "description_sv": "Kvällen vi öppnade dörrarna i Aröd: tända lyktor, kottu på grillen och hela grannskapet inbjudet.",
+  "cover": "/albums/opening-night/01.webp",
+  "photos": [
+    {
+      "image": "/albums/opening-night/01.webp",
+      "caption_en": "Doors open at dusk",
+      "caption_sv": "Dörrarna öppnas i skymningen"
+    },
+    {
+      "image": "/albums/opening-night/02.webp",
+      "caption_en": "First guests arriving",
+      "caption_sv": "De första gästerna anländer"
+    },
+    {
+      "image": "/albums/opening-night/03.webp",
+      "caption_en": "The carved mask by the entrance",
+      "caption_sv": "Den snidade masken vid entrén"
+    },
+    {
+      "image": "/albums/opening-night/04.webp",
+      "caption_en": "Stepping inside",
+      "caption_sv": "På väg in"
+    },
+    {
+      "image": "/albums/opening-night/05.webp",
+      "caption_en": "Mask detail",
+      "caption_sv": "Maskdetalj"
+    },
+    {
+      "image": "/albums/opening-night/06.webp",
+      "caption_en": "A full dining room",
+      "caption_sv": "En fullsatt matsal"
+    },
+    {
+      "image": "/albums/opening-night/07.webp",
+      "caption_en": "Tables ready",
+      "caption_sv": "Borden är dukade"
+    }
+  ]
+}

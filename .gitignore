@@ -1,0 +1,8 @@
+node_modules
+.next
+out
+next-env.d.ts
+*.tsbuildinfo
+
+# Raw source frames (74 MB). The site uses the optimised copies in public/frames.
+screens/

@@ -1,0 +1,40 @@
+{
+  "date": "2025-12-20",
+  "title_en": "Christmas party 2025",
+  "title_sv": "Julfest 2025",
+  "description_en": "A Sri Lankan twist on julbord, with festive curries, candles and friends old and new.",
+  "description_sv": "Julbord med lankesisk twist: festliga curryrätter, levande ljus och gamla som nya vänner.",
+  "cover": "/albums/christmas-2025/01.webp",
+  "photos": [
+    {
+      "image": "/albums/christmas-2025/01.webp",
+      "caption_en": "Candles on every table",
+      "caption_sv": "Ljus på varje bord"
+    },
+    {
+      "image": "/albums/christmas-2025/02.webp",
+      "caption_en": "The mask over the room",
+      "caption_sv": "Masken över rummet"
+    },
+    {
+      "image": "/albums/christmas-2025/03.webp",
+      "caption_en": "Ready for guests",
+      "caption_sv": "Redo för gästerna"
+    },
+    {
+      "image": "/albums/christmas-2025/04.webp",
+      "caption_en": "Carved details",
+      "caption_sv": "Snidade detaljer"
+    },
+    {
+      "image": "/albums/christmas-2025/05.webp",
+      "caption_en": "Green and gold",
+      "caption_sv": "Grönt och guld"
+    },
+    {
+      "image": "/albums/christmas-2025/06.webp",
+      "caption_en": "Lanterns aglow",
+      "caption_sv": "Lysande lyktor"
+    }
+  ]
+}
