@@ -9,8 +9,7 @@ export function MapSection() {
   const { t } = useLanguage();
 
   return (
-    <section id="find-us" className="relative bg-charcoal px-4 pt-16 pb-12 sm:px-12">
-
+    <section id="find-us" className="relative px-4 pt-16 pb-12 sm:px-12">
       <div className="mx-auto max-w-6xl">
         <p className="flex items-center gap-3 font-mono text-[11px] tracking-[0.3em] text-amber-glow uppercase">
           <span className="size-1.5 rounded-full bg-amber-glow [animation:pulse-dot_2.4s_ease-in-out_infinite]" />

@@ -11,8 +11,6 @@ export function GallerySection({ albums }: { albums: Album[] }) {
 
   return (
     <section id="gallery" className="relative px-4 pt-40 pb-16 sm:px-12">
-      {/* Fades the frames out into the solid backdrop used by the rest of the page. */}
-      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-transparent via-charcoal/90 via-30% to-charcoal" />
 
       <div className="mx-auto max-w-6xl">
         <p className="flex items-center gap-3 font-mono text-[11px] tracking-[0.3em] text-amber-glow uppercase">

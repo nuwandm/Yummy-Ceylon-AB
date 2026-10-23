@@ -48,7 +48,7 @@ export function ReviewsSection() {
   const ratingText = rating.toLocaleString(lang === "sv" ? "sv-SE" : "en-GB", { minimumFractionDigits: 1 });
 
   return (
-    <section id="reviews" className="relative bg-charcoal px-4 pt-16 pb-16 sm:px-12">
+    <section id="reviews" className="relative px-4 pt-16 pb-16 sm:px-12">
 
       <div className="mx-auto max-w-6xl">
         <p className="flex items-center gap-3 font-mono text-[11px] tracking-[0.3em] text-amber-glow uppercase">

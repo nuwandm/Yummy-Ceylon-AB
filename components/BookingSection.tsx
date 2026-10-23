@@ -61,7 +61,7 @@ export function BookingSection() {
   }
 
   return (
-    <section id="book" className="relative bg-charcoal px-4 pt-16 pb-16 sm:px-12">
+    <section id="book" className="relative px-4 pt-16 pb-16 sm:px-12">
       <div className="mx-auto max-w-6xl">
         <p className="flex items-center gap-3 font-mono text-[11px] tracking-[0.3em] text-amber-glow uppercase">
           <span className="size-1.5 rounded-full bg-amber-glow [animation:pulse-dot_2.4s_ease-in-out_infinite]" />

@@ -3,15 +3,18 @@
 import { useEffect, useRef, useState } from "react";
 import frames from "./frames.json";
 import { useLanguage } from "./LanguageProvider";
-import { getScrollProgress } from "./useScrollProgress";
+import { BACKDROP_DIM } from "./Backdrop";
+import { getScrollProgress, SEQUENCE_ID } from "./useScrollProgress";
 import { asset } from "@/lib/asset";
 
 const FRAME_COUNT = frames.count;
 const frameSrc = (i: number) => asset(`/frames/frame-${String(i + 1).padStart(3, "0")}.webp`);
 
-// Fixed full-screen canvas whose frame follows the page scroll position.
+// Fixed full-screen canvas whose frame follows the page scroll position. Past the end of the
+// sequence the last frame stays put and a dim layer fades in behind the content sections.
 export function ScrollBackground() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const dimRef = useRef<HTMLDivElement>(null);
   const [loaded, setLoaded] = useState(0);
   const { t } = useLanguage();
 
@@ -43,9 +46,18 @@ export function ScrollBackground() {
       return Math.round(getScrollProgress() * (FRAME_COUNT - 1));
     };
 
+    // 0 during the walk-in, ramping to 1 over the first ~60% of a screen scrolled past its end.
+    const updateDim = () => {
+      const seq = document.getElementById(SEQUENCE_ID);
+      if (!seq || !dimRef.current) return;
+      const beyond = window.scrollY - (seq.offsetTop + seq.offsetHeight - window.innerHeight);
+      dimRef.current.style.opacity = String(Math.min(Math.max(beyond / (window.innerHeight * 0.6), 0), 1));
+    };
+
     // Fall back to the nearest loaded frame so scrolling ahead of the preload never shows a blank.
     const render = () => {
       rafId = 0;
+      updateDim();
       let index = frameForScroll();
       while (index > 0 && !images[index]?.complete) index--;
       if (index !== current) draw(index);
@@ -97,6 +109,7 @@ export function ScrollBackground() {
             "linear-gradient(to right, rgba(0,0,0,0.65), rgba(0,0,0,0.15) 55%, transparent), linear-gradient(to bottom, rgba(0,0,0,0.35), transparent 30%, transparent 55%, rgba(0,0,0,0.6))",
         }}
       />
+      <div ref={dimRef} className="pointer-events-none fixed inset-0 -z-10" style={{ background: BACKDROP_DIM, opacity: 0 }} />
       {pct < 100 && (
         <div className="fixed bottom-0 left-0 z-50 h-0.5 bg-amber-glow transition-all" style={{ width: `${pct}%` }}>
           <span className="sr-only">

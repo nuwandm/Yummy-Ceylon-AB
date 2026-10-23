@@ -5,6 +5,7 @@ import { useState } from "react";
 import { formatAlbumDate, localized, type Album } from "@/lib/album-types";
 import { asset } from "@/lib/asset";
 import { Atmosphere } from "./Atmosphere";
+import { Backdrop } from "./Backdrop";
 import { Header } from "./Header";
 import { useLanguage } from "./LanguageProvider";
 import { Lightbox } from "./Lightbox";
@@ -17,6 +18,7 @@ export function AlbumView({ album }: { album: Album }) {
 
   return (
     <>
+      <Backdrop />
       <Atmosphere />
       <Header />
 

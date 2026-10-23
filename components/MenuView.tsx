@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { Atmosphere } from "./Atmosphere";
+import { Backdrop } from "./Backdrop";
 import { Header } from "./Header";
 import { useLanguage } from "./LanguageProvider";
 import { menu } from "./menu";
@@ -13,6 +14,7 @@ export function MenuView() {
 
   return (
     <>
+      <Backdrop />
       <Atmosphere />
       <Header />
 
