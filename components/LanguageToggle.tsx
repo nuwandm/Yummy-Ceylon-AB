@@ -19,7 +19,7 @@ export function LanguageToggle() {
           type="button"
           onClick={() => setLang(o.value)}
           aria-pressed={lang === o.value}
-          className={`rounded-full px-3 py-1.5 tracking-widest transition-all duration-300 ${
+          className={`min-w-9 rounded-full px-2.5 py-2 tracking-widest sm:min-w-10 sm:px-3 transition-colors duration-300 ${
             lang === o.value
               ? "bg-amber-glow text-charcoal shadow-[0_0_18px_-2px_rgb(242_180_90/0.8)]"
               : "text-cream/60 hover:text-cream"

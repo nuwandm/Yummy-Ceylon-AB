@@ -35,13 +35,20 @@ export function Scene({ index, total, kicker, title, accent, text, children, asi
       const fit = vh - card.offsetHeight - vh * 0.06;
       setTop(`${Math.max(Math.min(ideal, fit), 88)}px`);
     };
-    place();
+    // Re-place on width changes and card size changes only: on phones the URL bar showing/hiding
+    // changes the height constantly, and re-pinning then makes the card jump mid-scroll.
+    let lastWidth = window.innerWidth;
+    const onResize = () => {
+      if (window.innerWidth === lastWidth) return;
+      lastWidth = window.innerWidth;
+      place();
+    };
     const ro = new ResizeObserver(place);
     ro.observe(card);
-    window.addEventListener("resize", place);
+    window.addEventListener("resize", onResize);
     return () => {
       ro.disconnect();
-      window.removeEventListener("resize", place);
+      window.removeEventListener("resize", onResize);
     };
   }, []);
 
@@ -60,8 +67,9 @@ export function Scene({ index, total, kicker, title, accent, text, children, asi
       <div
         ref={cardRef}
         style={{ top }}
-        className={`sticky flex items-end justify-between gap-8 transition-[opacity,translate,filter] duration-700 ease-out ${
-          active ? "translate-y-0 opacity-100 blur-0" : "pointer-events-none translate-y-8 opacity-0 blur-sm"
+        // Opacity + translate only: both run on the compositor, unlike an animated blur.
+        className={`sticky flex items-end justify-between gap-8 transition-[opacity,translate] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+          active ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-6 opacity-0"
         }`}
       >
         <div

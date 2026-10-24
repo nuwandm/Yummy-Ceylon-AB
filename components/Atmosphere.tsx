@@ -30,11 +30,12 @@ export function Atmosphere() {
         className="absolute inset-0"
         style={{ background: "radial-gradient(ellipse at 60% 45%, transparent 45%, rgb(8 5 3 / 0.75) 100%)" }}
       />
-      <div className="absolute inset-0 opacity-[0.07] mix-blend-overlay" style={{ backgroundImage: GRAIN }} />
+      {/* Grain blends over the moving canvas every frame; skip it on phones. */}
+      <div className="absolute inset-0 hidden opacity-[0.07] mix-blend-overlay md:block" style={{ backgroundImage: GRAIN }} />
       {embers.map((e, i) => (
         <span
           key={i}
-          className="absolute bottom-[-10px] rounded-full"
+          className="ember absolute bottom-[-10px] rounded-full will-change-transform"
           style={
             {
               left: e.left,

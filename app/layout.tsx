@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { LanguageProvider } from "@/components/LanguageProvider";
 import { asset } from "@/lib/asset";
 import "./globals.css";
@@ -7,6 +7,13 @@ export const metadata: Metadata = {
   title: "Yummy Ceylon · Sri Lankan restaurant in Göteborg",
   description:
     "Sri Lankesiska och svenska delikatesser under samma tak. Lunchbuffé vardagar 11–14 · Sri Lankan & Swedish food in Göteborg.",
+};
+
+// Dark browser chrome on mobile, edge-to-edge under the notch (the header pads for the safe area).
+export const viewport: Viewport = {
+  themeColor: "#0c0907",
+  colorScheme: "dark",
+  viewportFit: "cover",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
